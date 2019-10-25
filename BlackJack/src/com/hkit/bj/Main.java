@@ -1,36 +1,58 @@
 package com.hkit.bj;
 
+import java.util.Scanner;
+
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 			CardDeck ca = new CardDeck();
-			Gamer g = new Gamer();
-			Dealer d = new Dealer();
-			Rule r = new Rule();
+			Gamer gm = new Gamer();
+			Dealer dl = new Dealer();
+			Rule ru = new Rule();
 	
+			Scanner scan = new Scanner(System.in);
+			
+			String key = "";
 			ca.shuffleCards();
-			
-			//ca.showCards();
-			//System.out.println();
-			
+
 			for(int i = 0; i<2; i++)
 			{
-				d.addCard(ca.pick());
-				g.addCard(ca.pick());		
+				dl.addCard(ca.pick());
+				gm.addCard(ca.pick());		
 			}
 			
-			if(d.rule() == true)
+			/*
+			if(d.needMoreCard() == true)
 			{
 				d.addCard(ca.pick());
 			}
+			*/
 			
+			dl.needMoreCard(ca);
+				
+			gm.showCards();			
 			
-			g.showCards();			
-			d.showCards();
 		
-			r.check(r.measurement(g),r.measurement(d));
+			
+			while(true)
+			{
+				System.out.println("더 뽑을려면 y : ");
+				key = scan.nextLine();
+				if(key.equals("y")) 
+				{
+					gm.addCard(ca.pick());
+					gm.showCards();
+				}
+				else 
+				{
+					break;
+				}	
+			}
+			scan.close();
+			//ru.check(ru.measurement(gm),ru.measurement(dl));
+			dl.showCards();
+			ru.getWinner(gm.getSum(),dl.getSum());
 			
 	}
-
 }

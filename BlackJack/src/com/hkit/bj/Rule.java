@@ -18,23 +18,42 @@ public class Rule {
 		return sum;
 	}
 	
-	public void check(int a, int b)
+	public static void getWinner(int gv, int dv)
 	{
-		int r1 = 21 - a;
-		int r2 = 21 - b;
+		/*
+		int r1 = Math.abs(21 - gv);
+		int r2 = Math.abs(21 - dv);
+		*/
 		
-		r1 = Math.abs(r1);
-		r2 = Math.abs(r2);
+		int r1 = 21 - gv;
+		int r2 = 21 - dv;
 		
-		if(r1 < r2)
+		
+		if(r1 <0 && r2 < 0 || r1 == r2)
 		{
-			System.out.println("Gamer Win!!!!");
+			System.out.println("Draw!!!!");
+		}
+		else if (r1 > 0 && r2 > 0)
+		{
+			if(r1 < r2)
+			{
+				System.out.println("Gamer Win!!!!");
+			}
+			else 
+			{
+				System.out.println("Gamer Lose!!!!");
+			}
+		}
+		else if(r2 > 0 && r1< 0)
+		{
+			System.out.println("Gamer Lose!!");
 		}
 		else
 		{
-			System.out.println("Gamer Lose!!!!");
+			System.out.println("Gamer Win!!!!");
 		}
-		
 	}
+	
+	
 	
 }
