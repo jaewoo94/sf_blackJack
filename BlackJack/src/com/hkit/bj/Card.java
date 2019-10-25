@@ -46,7 +46,8 @@ public class Card {
 			result = "K";
 			break;
 		default :
-			result = Integer.toString(value+1);	
+			result = Integer.toString(value+1);
+			
 		}
 		return result;
 	}

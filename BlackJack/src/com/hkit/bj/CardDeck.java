@@ -23,7 +23,7 @@ public class CardDeck {
 				Card ca = new Card(shapes[i],j);
 				cards[count] = ca;
 				count++;
-				//System.out.println(cards[i*j].shape + cards[i*j].mark);
+		
 			}	
 		}
 	}
@@ -47,5 +47,21 @@ public class CardDeck {
 		{
 			System.out.println(c);
 		}
+	}
+	
+	public Card pick()
+	{
+		Card result = null;
+		
+		for(int i =0; i<cards.length; i++)
+		{
+			if(cards[i] != null)
+			{
+				result = cards[i];
+				cards[i] = null;
+				break;
+			}
+		}
+		return result;
 	}
 }
